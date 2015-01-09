@@ -34,3 +34,4 @@ _vendor/src/$(IMPORT_PATH):
 	rm -f _vendor/src/$(IMPORT_PATH)
 	mkdir -p _vendor/src/$(IMPORT_BASE)
 	ln -s $(CURDIR) _vendor/src/$(IMPORT_PATH)
+	true
