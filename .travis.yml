@@ -4,6 +4,8 @@ notifications:
 branches:
   only:
     - master
+before_install:
+    - export PATH=$HOME/gopath/bin:$PATH
 after_success:
   - ./.travis_scripts/push_release_tag.sh
 after_failure:

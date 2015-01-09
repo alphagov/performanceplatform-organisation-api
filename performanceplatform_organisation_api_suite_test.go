@@ -7,14 +7,12 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
 )
 
 func TestPerformanceplatformOrganisationApi(t *testing.T) {
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "PerformanceplatformOrganisationApi Suite")
 }
-
 
 func testHandlerServer(handler interface{}) *httptest.Server {
 	var h http.Handler
