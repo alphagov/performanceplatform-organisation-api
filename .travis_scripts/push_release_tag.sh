@@ -1,9 +1,48 @@
 #!/bin/bash -ex
 
+# This script is run by Travis after the current commit passes all the tests.
+# It creates the following tags and pushes them to the repo:
+# - release_<travis build number>
+# - release
+#
+# This requires a GitHub token with permission to write to the repo.
+
+##### TESTING LOCALLY #####
+
+# To test locally we need to fake the environment variables provided by Travis.
+#
+# Do this by setting LOCAL_TEST_MODE to "true" and TESTING_GITHUB_TOKEN to a
+# token you create in github with ``public_repo`` permission.
+
 # Local testing options
 LOCAL_TEST_MODE="false"
 TESTING_GITHUB_TOKEN="make-yourself-one-in-github"
 
+
+##### RUNNING IN TRAVIS #####
+
+# When running in Travis the GH_TOKEN variable is set by Travis itself by
+# decrypting the ``secure`` section from the .travis.yml file
+
+# To create a new token, follow these steps:
+#
+# - create a new token in GitHub with the ``public_repo`` permission
+#   (preferably as gds-ci-pp user)
+# - cd to your repo root folder
+# - sudo gem install travis
+# - travis encrypt GH_TOKEN=the-token-from-github
+
+# For Travis encrypted environment variables, see:
+# - http://docs.travis-ci.com/user/encryption-keys/
+
+# Get the public key of your repo with:
+# - https://api.travis-ci.org/repos/alphagov/stagecraft/key
+
+# For Travis environment variables, see
+# http://docs.travis-ci.com/user/ci-environment/
+
+# For a similar example of working with Github and Travis, see:
+# - http://benlimmer.com/2013/12/26/automatically-publish-javadoc-to-gh-pages-with-travis-ci/
 
 function ensure_running_in_travis_master_branch {
   if [ "$TRAVIS" != "true" ]; then
