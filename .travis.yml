@@ -11,6 +11,7 @@ install:
     - go get github.com/onsi/ginkgo
     - go get github.com/onsi/gomega
     - go get code.google.com/p/go.tools/cmd/cover
+    - go get gopkg.in/unrolled/render.v1
 after_success:
   - ./.travis_scripts/push_release_tag.sh
 after_failure:
