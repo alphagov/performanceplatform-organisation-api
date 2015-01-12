@@ -13,7 +13,7 @@ install:
     - go get code.google.com/p/go.tools/cmd/cover
     - go get gopkg.in/unrolled/render.v1
 after_success:
-  - bash -c "echo $PWD"
+  - ./.travis_scripts/push_release_tag.sh
 after_failure:
   - "cat /home/travis/build/alphagov/performanceplatform-organisation-api/error.log"
 env:

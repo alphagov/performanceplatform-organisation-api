@@ -51,7 +51,7 @@ function make_release_tag_from_travis_build_number {
 function setup_fake_travis_environment {
   echo "Setting up fake Travis environment"
   TRAVIS="true"
-  TRAVIS_REPO_SLUG="alphagov/performanceplatform-notifier"
+  TRAVIS_REPO_SLUG="alphagov/performanceplatform-organisation-api"
   TRAVIS_BRANCH="master"
   TRAVIS_COMMIT="bb7d6b2a29d876d244ccf54381221c1e22b43bc1"
   TRAVIS_BUILD_NUMBER="123456789"
