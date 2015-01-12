@@ -1,6 +1,6 @@
 .PHONY: deps test build
 
-BINARY := performance-organisation-api
+BINARY := organisation-api
 IMPORT_BASE := github.com/alphagov
 IMPORT_PATH := $(IMPORT_BASE)/performanceplatform-organisation-api
 
