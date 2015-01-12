@@ -7,8 +7,9 @@ IMPORT_PATH := $(IMPORT_BASE)/performanceplatform-organisation-api
 all: deps _vendor fmt test build
 
 deps:
-	-go get github.com/mattn/gom
-	-go get golang.org/x/tools/cmd/cover
+	- go get github.com/mattn/gom
+	- go get code.google.com/p/go.tools/cmd/cover
+	- go get golang.org/x/tools/cmd/cover
 
 fmt:
 	gofmt -w=1 *.go
@@ -34,4 +35,3 @@ _vendor/src/$(IMPORT_PATH):
 	rm -f _vendor/src/$(IMPORT_PATH)
 	mkdir -p _vendor/src/$(IMPORT_BASE)
 	ln -s $(CURDIR) _vendor/src/$(IMPORT_PATH)
-	true
