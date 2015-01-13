@@ -6,11 +6,5 @@ branches:
     - master
 before_install:
     - export PATH=$HOME/gopath/bin:$PATH
-after_success:
-  - ./.travis_scripts/push_release_tag.sh
 after_failure:
   - "cat /home/travis/build/alphagov/performanceplatform-organisation-api/error.log"
-env:
-  global:
-  - NODE_ENV: travis
-  - secure: "blBuDXldMh+0yJa2I7xe7NEWCbjxM9m30pVy0PPHIrAwRnsOVfMCb1XdMu5hNuhzGImZaHwvwWnOPeoUToLoop5sQORYE33b1KYcOvGKNxkWAqp5xi0KgcOUq6dxJNGFwRtYbFU9HVy8WcA9VtmjJQZCxYNr5mxBE3oFjXp8d8c="
