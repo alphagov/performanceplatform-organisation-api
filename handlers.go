@@ -32,7 +32,7 @@ var (
 )
 
 func main() {
-
+	http.ListenAndServe(":3060", newHandler())
 }
 
 func newHandler() http.Handler {
