@@ -49,8 +49,7 @@ func StatusHandler(w http.ResponseWriter, r *http.Request) {
 	setStatusHeaders(w)
 
 	renderer.JSON(w, http.StatusOK, map[string]string{
-		"status":  "ok",
-		"message": "database seems fine",
+		"status": "ok",
 	})
 }
 

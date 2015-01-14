@@ -28,10 +28,6 @@ var _ = Describe("Handlers", func() {
 			response, err := http.Get(testServer.URL + "/_status")
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(http.StatusOK))
-
-			//			Expect(response).To(EqualAPIResponse(APIResponse{
-			//				Status:  "ok",
-			//				Message: "database seems fine"}))
 		})
 
 		It("responds to HEAD requests", func() {
