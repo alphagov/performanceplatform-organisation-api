@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/go-martini/martini"
+	"github.com/gorilla/mux"
 	"gopkg.in/unrolled/render.v1"
 )
 
@@ -36,10 +36,10 @@ func main() {
 }
 
 func newHandler() http.Handler {
-	m := martini.Classic()
-	m.Get("/_status", StatusHandler)
-	m.Post("/_status", MethodNotAllowedHandler)
-	return m
+	router := mux.NewRouter()
+	router.HandleFunc("/_status", StatusHandler).Methods("GET", "HEAD")
+	router.HandleFunc("/_status", MethodNotAllowedHandler)
+	return router
 }
 
 // StatusHandler is the basic healthcheck for the application

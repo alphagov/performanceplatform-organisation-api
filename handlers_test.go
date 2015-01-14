@@ -4,8 +4,6 @@ import (
 	"net/http"
 	"net/http/httptest"
 
-	"github.com/go-martini/martini"
-
 	"strings"
 
 	. "github.com/onsi/ginkgo"
@@ -18,7 +16,6 @@ var _ = Describe("Handlers", func() {
 
 	BeforeEach(func() {
 		testServer = testHandlerServer(newHandler())
-		martini.Env = martini.Test
 	})
 
 	AfterEach(func() {
@@ -48,9 +45,6 @@ var _ = Describe("Handlers", func() {
 				"application/json",
 				strings.NewReader(`{"foo":"foo"}`))
 			Expect(err).To(BeNil())
-			// This is the preferred implementation but Martini routing doesn't do
-			// that – yet!
-			// So we've added an explicit route and handler for this
 			Expect(response.StatusCode).To(Equal(http.StatusMethodNotAllowed))
 		})
 
