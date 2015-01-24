@@ -4,6 +4,8 @@ BINARY := organisation-api
 IMPORT_BASE := github.com/alphagov
 IMPORT_PATH := $(IMPORT_BASE)/performanceplatform-organisation-api
 
+FMT := $(shell { type goimports || type gofmt; } | cut -f 1 -d ' ' 2>/dev/null)
+
 all: deps _vendor fmt test build
 
 deps:
@@ -12,7 +14,7 @@ deps:
 	-go get code.google.com/p/go.tools/cmd/cover
 
 fmt:
-	gofmt -w=1 *.go
+	$(FMT) -w=1 *.go
 
 test:
 	gom test -cover \
